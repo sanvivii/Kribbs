@@ -1,4 +1,4 @@
-    import { useSignIn } from "@clerk/expo";
+import { useSignIn } from "@clerk/expo";
 import { Image } from "expo-image";
 import { Link, useRouter } from "expo-router";
 import { useState } from "react";

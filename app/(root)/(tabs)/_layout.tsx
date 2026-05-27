@@ -1,7 +1,10 @@
-import { Tabs } from "expo-router";
+import { useUserStore } from "@/store/userStore";
 import { Ionicons } from "@expo/vector-icons";
+import { Tabs } from "expo-router";
 
 export default function TabsLayout() {
+const isAdmin = useUserStore((state) => state.isAdmin);
+
   return (
     <Tabs
       screenOptions={{
@@ -27,6 +30,21 @@ export default function TabsLayout() {
           ),
         }}
       />
+
+      {isAdmin && (
+        <Tabs.Screen
+          name="create"
+          options={{
+            title: "Add Property",
+            tabBarIcon: ({ color, size }) => (
+              <Ionicons
+                name="add-circle"
+                color={color}
+                size={size}/>),
+          }}
+        />
+      )}
+
       <Tabs.Screen
         name="saved"
         options={{
